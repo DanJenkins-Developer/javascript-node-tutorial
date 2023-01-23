@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
 
 // error middleware
 app.use(notFoundMiddleware)     // Middleware gets hit if no routes are found. Invoked outside of the routes.
-app.use(errorHandlerMiddleware) // Middle ware gets hit if there is an error inside the route. Invoked inside. 
+app.use(errorHandlerMiddleware) // Middleware gets hit if there is an error inside a route. Invoked inside the routes. 
 
 
 const start = async () => {
