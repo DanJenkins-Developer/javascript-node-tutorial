@@ -7,3 +7,9 @@ const login = async (req, res) => {
 const logout = async (req, res) => {
     res.send('logout user')
 }
+
+module.exports = {
+    register,
+    login,
+    logout
+}
