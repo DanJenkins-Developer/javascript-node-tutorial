@@ -15,6 +15,9 @@ const morgan = require('morgan')
 const connectDB = require('./db/connect')
 const PORT = process.env.PORT || 5000
 
+// routers
+const authRouter = require('./routes/authRoutes')
+
 // middleware imports
 const notFoundMiddleware = require('./middleware/not-found')
 const errorHandlerMiddleware = require('./middleware/error-handler')
@@ -23,11 +26,13 @@ const errorHandlerMiddleware = require('./middleware/error-handler')
 app.use(morgan('tiny'))     // Logging data/Debugging
 app.use(express.json())     // Grants access to JSON data in req.body
 
-
 // routes
 app.get('/', (req, res) => {
     res.send('E-Commerce API')
 })
+
+// routes middleware
+app.use('/api/v1/auth', authRouter)
 
 // error middleware
 app.use(notFoundMiddleware)     // Middleware gets hit if no routes are found. Invoked outside of the routes.
